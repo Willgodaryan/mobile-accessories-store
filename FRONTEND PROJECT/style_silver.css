@@ -1,0 +1,376 @@
+@import url('style_index.css');
+
+/* SILVER PAGE HEADER HERO */
+.silver-header {
+    width: 96%;
+    margin: 10px auto 40px;
+    padding: 60px 40px;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(240, 243, 255, 0.88));
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(215, 225, 245, 0.9);
+    border-radius: 24px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.04);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.silver-header::before {
+    content: '';
+    position: absolute;
+    top: -40%;
+    right: -10%;
+    width: 450px;
+    height: 450px;
+    background: radial-gradient(circle, rgba(124, 77, 255, 0.15), transparent 70%);
+    pointer-events: none;
+}
+
+.breadcrumbs {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-size: 14px;
+    color: #777;
+    margin-bottom: 12px;
+}
+
+.breadcrumbs a {
+    color: #555;
+    text-decoration: none;
+    transition: color .2s;
+}
+
+.breadcrumbs a:hover {
+    color: #2f80ed;
+}
+
+.breadcrumbs i {
+    font-size: 10px;
+    color: #aaa;
+}
+
+.breadcrumbs span {
+    color: #7c4dff;
+    font-weight: 600;
+}
+
+.silver-header h1 {
+    font-size: 44px;
+    font-weight: 800;
+    color: #111;
+    font-family: 'Manrope', sans-serif;
+    letter-spacing: -1.5px;
+    margin-bottom: 14px;
+    background: linear-gradient(135deg, #111, #444, #7c4dff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.silver-header p {
+    color: #555;
+    font-size: 18px;
+    max-width: 740px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+/* SILVER CRAFTSMANSHIP SECTION */
+.craftsmanship-section {
+    width: 96%;
+    margin: 0 auto 60px;
+    background: #ffffff;
+    border-radius: 24px;
+    padding: 50px;
+    border: 1px solid #ececec;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+}
+
+.craftsmanship-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.craftsmanship-header h2 {
+    font-size: 32px;
+    font-weight: 800;
+    color: #111;
+    font-family: 'Manrope', sans-serif;
+    letter-spacing: -1px;
+    margin-bottom: 10px;
+}
+
+.craftsmanship-header p {
+    font-size: 16px;
+    color: #666;
+    max-width: 650px;
+    margin: 0 auto;
+}
+
+.craft-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 25px;
+}
+
+.craft-card {
+    background: linear-gradient(135deg, #f9fbfd, #f4f6fc);
+    border-radius: 20px;
+    padding: 32px 24px;
+    border: 1px solid #e3e8f5;
+    text-align: center;
+    transition: transform .35s ease, box-shadow .35s ease, border-color .35s ease;
+}
+
+.craft-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 18px 40px rgba(124, 77, 255, 0.14);
+    border-color: rgba(124, 77, 255, 0.35);
+}
+
+.craft-icon {
+    width: 60px;
+    height: 60px;
+    margin: 0 auto 20px;
+    border-radius: 18px;
+    background: linear-gradient(135deg, rgba(124, 77, 255, 0.15), rgba(66, 133, 244, 0.15));
+    color: #7c4dff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    transition: all .35s ease;
+}
+
+.craft-card:hover .craft-icon {
+    background: linear-gradient(135deg, #7C4DFF, #4285F4);
+    color: #ffffff;
+    transform: scale(1.1) rotate(4deg);
+}
+
+.craft-card h3 {
+    font-size: 18px;
+    font-weight: 700;
+    color: #111;
+    margin-bottom: 10px;
+    font-family: 'Manrope', sans-serif;
+}
+
+.craft-card p {
+    font-size: 14px;
+    color: #666;
+    line-height: 1.6;
+}
+
+/* PRODUCTS SECTION FOR SILVER CASES ONLY */
+.silver-products-section {
+    width: 96%;
+    margin: 0 auto 80px;
+}
+
+.section-heading {
+    margin-bottom: 30px;
+}
+
+.section-heading h2 {
+    font-size: 30px;
+    font-weight: 800;
+    color: #111;
+    font-family: 'Manrope', sans-serif;
+    letter-spacing: -1px;
+}
+
+.silver-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+}
+
+/* PRODUCT CARD STYLING */
+.silver-grid .product-card {
+    background: #ffffff;
+    border-radius: 20px;
+    padding: 22px;
+    border: 1px solid #ececec;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform .35s ease, box-shadow .35s ease;
+    position: relative;
+}
+
+.silver-grid .product-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+}
+
+.product-img-wrapper {
+    width: 100%;
+    height: 220px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 16px;
+    overflow: hidden;
+    border-radius: 14px;
+    background: #f8f9fa;
+}
+
+.product-img-wrapper img {
+    max-height: 90%;
+    object-fit: contain;
+    transition: transform .4s ease;
+}
+
+.silver-grid .product-card:hover .product-img-wrapper img {
+    transform: scale(1.06);
+}
+
+.product-info {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.product-category {
+    font-size: 12px;
+    font-weight: 700;
+    color: #7c4dff;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.product-title {
+    font-size: 16px;
+    font-weight: 700;
+    color: #111;
+    text-decoration: none;
+    line-height: 1.4;
+    transition: color .2s;
+}
+
+.product-title:hover {
+    color: #2f80ed;
+}
+
+.price-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 6px;
+}
+
+.price {
+    font-size: 20px;
+    font-weight: 800;
+    color: #111;
+    font-family: 'Manrope', sans-serif;
+}
+
+.old-price {
+    font-size: 14px;
+    color: #999;
+    text-decoration: line-through;
+}
+
+.silver-grid .add-to-cart {
+    width: 100%;
+    margin-top: 14px;
+    padding: 13px;
+    border-radius: 12px;
+    border: none;
+    background: #111;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    transition: all .3s ease;
+}
+
+.silver-grid .add-to-cart:hover {
+    background: #2f80ed;
+}
+
+.wishlist-btn {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: #ffffff;
+    border: 1px solid #eee;
+    color: #777;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all .25s ease;
+    z-index: 2;
+}
+
+.wishlist-btn:hover,
+.wishlist-btn.active {
+    color: #e53935;
+    border-color: rgba(229, 57, 53, 0.3);
+    background: rgba(229, 57, 53, 0.05);
+}
+
+/* RESPONSIVE STYLES FOR SILVER CASES PAGE */
+@media (max-width: 1200px) {
+    .silver-grid,
+    .craft-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 850px) {
+    .silver-grid,
+    .craft-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+    }
+
+    .craftsmanship-section {
+        padding: 30px 20px;
+    }
+
+    .silver-header {
+        padding: 40px 20px;
+        margin: 10px auto 20px;
+    }
+
+    .silver-header h1 {
+        font-size: 34px;
+    }
+}
+
+@media (max-width: 550px) {
+    .silver-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+    }
+
+    .craft-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .silver-header {
+        padding: 30px 16px;
+    }
+
+    .silver-header h1 {
+        font-size: 26px;
+    }
+
+    .silver-header p {
+        font-size: 14px;
+    }
+}

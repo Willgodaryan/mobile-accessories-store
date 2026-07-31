@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HOMEPAGE</title>
+    <link rel="stylesheet" href="style_index.css">
+    <link rel="stylesheet" href="style_cart.css">
+</head>
+
+<body>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <nav class="navbar">
+
+        <div class="logo">
+            <a href="index.html">AUREX</a>
+        </div>
+
+        <ul class="nav-links">
+            <li><a href="#" class="active">Home</a></li>
+            <li class="dropdown">
+                <a href="products.html">
+                    Mobile Accessories
+                    <i class="fa-solid fa-chevron-down"></i>
+                </a>
+
+                <ul class="dropdown-menu">
+                    <li><a href="products.html?cat=cases">Phone Cases</a></li>
+                    <li><a href="products.html?cat=powerbanks">Power Banks</a></li>
+                    <li><a href="products.html?cat=chargers">Chargers</a></li>
+                    <li><a href="products.html?cat=cables">Charging Cables</a></li>
+                    <li><a href="products.html?cat=protectors">Screen Protectors</a></li>
+                    <li><a href="products.html?cat=earbuds">Earbuds</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="silver.html" class="silver">
+                    925 Silver Cases
+                </a>
+            </li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="about.html">About</a></li>
+        </ul>
+
+
+        <div class="right-side">
+
+            <div class="search-box">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="text" id="navbarSearch" placeholder="Search ...">
+            </div>
+
+            <a href="#" class="icon">
+                <i class="fa-regular fa-heart"></i>
+                <span class="badge">2</span>
+            </a>
+
+            <a href="#" class="icon">
+                <i class="fa-solid fa-cart-shopping"></i>
+                <span class="badge" id="cartCount">0</span>
+            </a>
+
+            <a href="#" class="icon">
+                <i class="fa-regular fa-user"></i>
+            </a>
+
+            <button class="mobile-nav-toggle" id="mobileNavToggle" aria-label="Toggle Navigation Menu">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+
+        </div>
+
+    </nav>
+    <div class="slider">
+
+        <img src="media/banner1.png" class="slide active">
+
+        <img src="media/banner2.png" class="slide">
+
+        <img src="media/banner3.png" class="slide">
+
+        <img src="media/banner4.png" class="slide">
+
+    </div>
+
+    <script>
+        const slides = document.querySelectorAll(".slide");
+
+        let current = 0;
+
+        function nextSlide() {
+            slides[current].classList.remove("active");
+
+            current++;
+
+            if (current >= slides.length) {
+                current = 0;
+            }
+
+            slides[current].classList.add("active");
+        }
+
+        setInterval(nextSlide, 4000); // Changes every 4 seconds
+    </script>
+    <section class="features">
+
+        <div class="section-title">
+            <h2>Why Choose AUREX?</h2>
+            <p>Premium accessories designed for performance, style, and reliability.</p>
+        </div>
+
+        <div class="feature-container">
+
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fa-solid fa-gem"></i>
+                </div>
+
+                <h3>925 Silver Craftsmanship</h3>
+
+                <p>
+                    Premium 925 silver cases crafted with precision and elegance.
+                </p>
+            </div>
+
+
+            <div class="feature-card">
+
+                <div class="feature-icon">
+                    <i class="fa-solid fa-bolt"></i>
+                </div>
+
+                <h3>Fast Charging</h3>
+
+                <p>
+                    High-speed charging accessories built for maximum efficiency.
+                </p>
+
+            </div>
+
+
+            <div class="feature-card">
+
+                <div class="feature-icon">
+                    <i class="fa-solid fa-shield-halved"></i>
+                </div>
+
+                <h3>Premium Quality</h3>
+
+                <p>
+                    Every product undergoes quality checks for durability and safety.
+                </p>
+
+            </div>
+
+
+            <div class="feature-card">
+
+                <div class="feature-icon">
+                    <i class="fa-solid fa-truck-fast"></i>
+                </div>
+
+                <h3>Fast Delivery</h3>
+
+                <p>
+                    Secure packaging and quick shipping across India.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- product display
+     on homepage -->
+    <div class="product-title">
+        <h2>Featured Products</h2>
+        <p>Discover our best-selling mobile accessories</p>
+    </div>
+    <div class="product-grid">
+
+        <!-- Product Card 1: 65W GaN Charger -->
+        <div class="product-card" data-id="gan-charger-65w" data-category="Chargers" data-price="2999" data-title="65W GaN Fast Charger Dual USB-C Port" data-img="media/charger_gan.png">
+            <img class="product-img" src="media/charger_gan.png" alt="65W GaN Fast Charger">
+            <h3>65W GaN Fast Charger Dual USB-C Port</h3>
+            <p class="price">₹2,999</p>
+            <button class="add-to-cart"><i class="fa-solid fa-bag-shopping"></i> Add to Cart</button>
+        </div>
+
+        <!-- Product Card 2: ANC Earbuds Pro -->
+        <div class="product-card" data-id="anc-earbuds-pro" data-category="Earbuds" data-price="5999" data-title="Active Noise Cancelling Wireless Earbuds Pro" data-img="media/earbuds_pro.png">
+            <img class="product-img" src="media/earbuds_pro.png" alt="ANC Wireless Earbuds Pro">
+            <h3>Active Noise Cancelling Wireless Earbuds Pro</h3>
+            <p class="price">₹5,999</p>
+            <button class="add-to-cart"><i class="fa-solid fa-bag-shopping"></i> Add to Cart</button>
+        </div>
+
+        <!-- Product Card 3: MagSafe Power Bank -->
+        <div class="product-card" data-id="magsafe-powerbank-10k" data-category="Power Banks" data-price="4499" data-title="MagSafe 10,000mAh Ultra-Fast Power Bank" data-img="media/powerbank_10k.png">
+            <img class="product-img" src="media/powerbank_10k.png" alt="MagSafe Power Bank">
+            <h3>MagSafe 10,000mAh Power Bank</h3>
+            <p class="price">₹4,499</p>
+            <button class="add-to-cart"><i class="fa-solid fa-bag-shopping"></i> Add to Cart</button>
+        </div>
+
+        <!-- Product Card 4: 925 Silver Case -->
+        <div class="product-card" data-id="iphone17-promax-silver-peacock" data-category="925 Silver Cases" data-price="12999" data-title="iPhone 17 Pro Max 92.5 Sterling Silver Peacock Case" data-img="media/silver_peacock_real.jpg">
+            <img class="product-img" src="media/silver_peacock_real.jpg" alt="iPhone 17 Pro Max 92.5 Silver Peacock Case">
+            <h3>iPhone 17 Pro Max 92.5 Silver Peacock Case</h3>
+            <p class="price">₹12,999</p>
+            <button class="add-to-cart"><i class="fa-solid fa-bag-shopping"></i> Add to Cart</button>
+        </div>
+
+    </div>
+
+
+
+
+
+
+
+    <!-- ========================== 
+             FOOTER
+========================== -->
+    <footer class="footer">
+
+        <div class="footer-container">
+
+            <!-- Brand -->
+
+            <div class="footer-column">
+
+                <h2 class="footer-logo">AUREX</h2>
+
+                <p>
+                    Premium mobile accessories crafted for those who demand
+                    style, durability, and innovation.
+                </p>
+
+
+            </div>
+
+            <!-- Quick Links -->
+
+            <div class="footer-column">
+
+                <h3>Quick Links</h3>
+
+                <ul>
+
+                    <li><a href="index.html">Home</a></li>
+
+                    <li><a href="silver.html">925 Silver Cases</a></li>
+
+                    <li><a href="products.html">Accessories</a></li>
+
+                    <li><a href="about.html">About</a></li>
+
+                    <li><a href="contact.html">Contact</a></li>
+
+                </ul>
+
+            </div>
+
+            <!-- Support -->
+
+            <div class="footer-column">
+
+                <h3>Support</h3>
+
+                <ul>
+
+                    <li><a href="#">FAQs</a></li>
+
+                    <li><a href="#">Shipping</a></li>
+
+                    <li><a href="#">Returns</a></li>
+
+                    <li><a href="#">Privacy Policy</a></li>
+
+                    <li><a href="#">Terms & Conditions</a></li>
+
+                </ul>
+
+            </div>
+
+            <!-- Contact -->
+
+            <div class="footer-column">
+
+                <h3>Contact</h3>
+
+                <p>📍 Jaipur, Rajasthan</p>
+
+                <p>📧 dhakararyan.ad@gmail.com</p>
+
+                <p>📞 +91 7073376996</p>
+
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+
+            <p>© 2026 AUREX. All Rights Reserved.</p>
+
+            <p>Designed by Aryan Dhakar</p>
+
+        </div>
+
+    </footer>
+
+    <!-- Cart System Script -->
+    <script src="cart.js"></script>
+</body>
+
+</html>

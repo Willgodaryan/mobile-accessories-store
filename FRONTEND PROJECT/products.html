@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Products | AUREX Premium Mobile Accessories</title>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <!-- Main Product Page CSS -->
+    <link rel="stylesheet" href="style_products.css">
+    <!-- Shopping Cart CSS -->
+    <link rel="stylesheet" href="style_cart.css">
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+
+        <div class="logo">
+            <a href="index.html">AUREX</a>
+        </div>
+
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li class="dropdown">
+                <a href="products.html" class="active">
+                    Mobile Accessories
+                    <i class="fa-solid fa-chevron-down"></i>
+                </a>
+
+                <ul class="dropdown-menu">
+                    <li><a href="products.html?cat=cases">Phone Cases</a></li>
+                    <li><a href="products.html?cat=powerbanks">Power Banks</a></li>
+                    <li><a href="products.html?cat=chargers">Chargers</a></li>
+                    <li><a href="products.html?cat=cables">Charging Cables</a></li>
+                    <li><a href="products.html?cat=protectors">Screen Protectors</a></li>
+                    <li><a href="products.html?cat=earbuds">Earbuds</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="silver.html" class="silver">
+                    925 Silver Cases
+                </a>
+            </li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="about.html">About</a></li>
+        </ul>
+
+
+        <div class="right-side">
+
+            <div class="search-box">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="text" id="navbarSearch" placeholder="Search ...">
+            </div>
+
+            <a href="#" class="icon">
+                <i class="fa-regular fa-heart"></i>
+                <span class="badge">2</span>
+            </a>
+
+            <a href="#" class="icon">
+                <i class="fa-solid fa-cart-shopping"></i>
+                <span class="badge" id="cartCount">0</span>
+            </a>
+
+            <a href="#" class="icon">
+                <i class="fa-regular fa-user"></i>
+            </a>
+
+            <button class="mobile-nav-toggle" id="mobileNavToggle" aria-label="Toggle Navigation Menu">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+
+        </div>
+
+    </nav>
+
+    <!-- PAGE HEADER -->
+    <header class="page-header">
+        <div class="breadcrumbs">
+            <a href="index.html">Home</a>
+            <i class="fa-solid fa-chevron-right"></i>
+            <span>All Products</span>
+        </div>
+        <h1>Explore Our Collection</h1>
+        <p>Premium mobile cases, high-speed charging gear, and handcrafted 925 silver accessories engineered for modern
+            lifestyle.</p>
+    </header>
+
+    <!-- MAIN PRODUCTS CATALOG -->
+    <main class="products-container">
+
+        <!-- CATALOG CONTENT -->
+        <section class="catalog-content">
+
+            <!-- CATALOG TOOLBAR -->
+            <div class="catalog-toolbar">
+                <div class="result-count">
+                    Showing <span id="showingCount">12</span> of <span>12</span> products
+                </div>
+            </div>
+
+            <!-- PRODUCT GRID -->
+            <div class="products-grid" id="productsGrid">
+
+                <!-- Product Card 1 -->
+                <div class="product-card" data-id="iphone17-promax-silver-peacock" data-category="silver" data-price="12999"
+                    data-title="iPhone 17 Pro Max 92.5 Sterling Silver Peacock Case" data-img="media/silver_peacock_real.jpg">
+                    <button class="wishlist-btn" title="Add to Wishlist"><i class="fa-regular fa-heart"></i></button>
+                    <div class="product-img-wrapper">
+                        <img src="media/silver_peacock_real.jpg" alt="iPhone 17 Pro Max 92.5 Sterling Silver Peacock Case"
+                            class="product-img">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">925 Silver Cases</div>
+                        <a href="#" class="product-title">iPhone 17 Pro Max 92.5 Sterling Silver Peacock Case</a>
+                        <div class="price-row">
+                            <span class="price">₹12,999</span>
+                            <span class="old-price">₹15,999</span>
+                        </div>
+                        <button class="add-to-cart"><i class="fa-solid fa-bag-shopping"></i> Add to Cart</button>
+                    </div>
+                </div>
+
+                <!-- Product Card 2 -->
+                <div class="product-card" data-id="magsafe-frosted-case" data-category="cases" data-price="3999"
+                    data-title="iPhone 16 Pro MagSafe Frosted Matte Case" data-img="media/case_magsafe.png">
+                    <button class="wishlist-btn" title="Add to Wishlist"><i class="fa-regular fa-heart"></i></button>
+                    <div class="product-img-wrapper">
+                        <img src="media/case_magsafe.png" alt="iPhone 16 Pro Case" class="product-img">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Phone Cases</div>
+                        <a href="#" class="product-title">iPhone 16 Pro MagSafe Frosted Matte Case</a>
+                        <div class="price-row">
+                            <span class="price">₹3,999</span>
+                            <span class="old-price">₹4,999</span>
+                        </div>
+                        <button class="add-to-cart"><i class="fa-solid fa-bag-shopping"></i> Add to Cart</button>
+                    </div>
+                </div>
+
+                <!-- Product Card 3 -->
+                <div class="product-card" data-id="magsafe-powerbank-10k" data-category="powerbanks" data-price="4499"
+                    data-title="MagSafe 10,000mAh Ultra-Fast Power Bank" data-img="media/powerbank_10k.png">
+                    <button class="wishlist-btn" title="Add to Wishlist"><i class="fa-regular fa-heart"></i></button>
+                    <div class="product-img-wrapper">
+                        <img src="media/powerbank_10k.png" alt="MagSafe Power Bank" class="product-img">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Power Banks</div>
+                        <a href="#" class="product-title">MagSafe 10,000mAh Ultra-Fast Power Bank</a>
+                        <div class="price-row">
+                            <span class="price">₹4,499</span>
+                            <span class="old-price">₹5,999</span>
+                        </div>
+                        <button class="add-to-cart"><i class="fa-solid fa-bag-shopping"></i> Add to Cart</button>
+                    </div>
+                </div>
+
+                <!-- Product Card 4 -->
+                <div class="product-card" data-id="gan-charger-65w" data-category="chargers" data-price="2999"
+                    data-title="65W GaN Fast Charger Dual USB-C Port" data-img="media/charger_gan.png">
+                    <button class="wishlist-btn" title="Add to Wishlist"><i class="fa-regular fa-heart"></i></button>
+                    <div class="product-img-wrapper">
+                        <img src="media/charger_gan.png" alt="65W GaN Charger" class="product-img">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Chargers</div>
+                        <a href="#" class="product-title">65W GaN Fast Charger Dual USB-C Port</a>
+                        <div class="price-row">
+                            <span class="price">₹2,999</span>
+                            <span class="old-price">₹3,999</span>
+                        </div>
+                        <button class="add-to-cart"><i class="fa-solid fa-bag-shopping"></i> Add to Cart</button>
+                    </div>
+                </div>
+
+                <!-- Product Card 5 -->
+                <div class="product-card" data-id="iphone17-pro-silver-elephant" data-category="silver" data-price="8000"
+                    data-title="iPhone 17 Pro 92.5 Sterling Silver Elephant Case" data-img="media/silver_elephant_real.jpg">
+                    <button class="wishlist-btn" title="Add to Wishlist"><i class="fa-regular fa-heart"></i></button>
+                    <div class="product-img-wrapper">
+                        <img src="media/silver_elephant_real.jpg" alt="iPhone 17 Pro 92.5 Sterling Silver Elephant Case" class="product-img">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">925 Silver Cases</div>
+                        <a href="#" class="product-title">iPhone 17 Pro 92.5 Sterling Silver Elephant Case</a>
+                        <div class="price-row">
+                            <span class="price">₹8,000</span>
+                            <span class="old-price">₹10,999</span>
+                        </div>
+                        <button class="add-to-cart"><i class="fa-solid fa-bag-shopping"></i> Add to Cart</button>
+                    </div>
+                </div>
+
+                <!-- Product Card 6 -->
+                <div class="product-card" data-id="anc-earbuds-pro" data-category="earbuds" data-price="5999"
+                    data-title="Active Noise Cancelling Wireless Earbuds Pro" data-img="media/earbuds_pro.png">
+                    <button class="wishlist-btn" title="Add to Wishlist"><i class="fa-regular fa-heart"></i></button>
+                    <div class="product-img-wrapper">
+                        <img src="media/earbuds_pro.png" alt="ANC Wireless Earbuds Pro" class="product-img">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Earbuds</div>
+                        <a href="#" class="product-title">Active Noise Cancelling Wireless Earbuds Pro</a>
+                        <div class="price-row">
+                            <span class="price">₹5,999</span>
+                            <span class="old-price">₹7,999</span>
+                        </div>
+                        <button class="add-to-cart"><i class="fa-solid fa-bag-shopping"></i> Add to Cart</button>
+                    </div>
+                </div>
+
+                <!-- Product Card 7 -->
+                <div class="product-card" data-id="leather-magsafe-wallet" data-category="cases" data-price="2499"
+                    data-title="Premium Genuine Leather MagSafe Wallet & Stand" data-img="media/case_leather.png">
+                    <button class="wishlist-btn" title="Add to Wishlist"><i class="fa-regular fa-heart"></i></button>
+                    <div class="product-img-wrapper">
+                        <img src="media/case_leather.png" alt="Leather MagSafe Wallet Stand" class="product-img">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Phone Cases</div>
+                        <a href="#" class="product-title">Premium Genuine Leather MagSafe Wallet & Stand</a>
+                        <div class="price-row">
+                            <span class="price">₹2,499</span>
+                            <span class="old-price">₹3,299</span>
+                        </div>
+                        <button class="add-to-cart"><i class="fa-solid fa-bag-shopping"></i> Add to Cart</button>
+                    </div>
+                </div>
+
+                <!-- Product Card 8 -->
+                <div class="product-card" data-id="silver-engraved-case" data-category="silver" data-price="11999"
+                    data-title="925 Sterling Silver Engraved Armor Case" data-img="media/product1.png">
+                    <button class="wishlist-btn" title="Add to Wishlist"><i class="fa-regular fa-heart"></i></button>
+                    <div class="product-img-wrapper">
+                        <img src="media/product1.png" alt="925 Silver Engraved Armor Case" class="product-img">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">925 Silver Cases</div>
+                        <a href="#" class="product-title">925 Sterling Silver Engraved Armor Case</a>
+                        <div class="price-row">
+                            <span class="price">₹11,999</span>
+                            <span class="old-price">₹14,499</span>
+                        </div>
+                        <button class="add-to-cart"><i class="fa-solid fa-bag-shopping"></i> Add to Cart</button>
+                    </div>
+                </div>
+
+                <!-- Product Card 9 -->
+                <div class="product-card" data-id="3in1-wireless-charger" data-category="chargers" data-price="3499"
+                    data-title="3-in-1 Magnetic Foldable Wireless Charging Station" data-img="media/charger_3in1.png">
+                    <button class="wishlist-btn" title="Add to Wishlist"><i class="fa-regular fa-heart"></i></button>
+                    <div class="product-img-wrapper">
+                        <img src="media/charger_3in1.png" alt="3-in-1 Foldable Charging Station" class="product-img">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Chargers</div>
+                        <a href="#" class="product-title">3-in-1 Magnetic Foldable Wireless Charging Station</a>
+                        <div class="price-row">
+                            <span class="price">₹3,499</span>
+                            <span class="old-price">₹4,499</span>
+                        </div>
+                        <button class="add-to-cart"><i class="fa-solid fa-bag-shopping"></i> Add to Cart</button>
+                    </div>
+                </div>
+
+                <!-- Product Card 10 -->
+                <div class="product-card" data-id="armor-bumper-case" data-category="cases" data-price="1999"
+                    data-title="Heavy Duty Shockproof Armor Bumper Case" data-img="media/case_armor.png">
+                    <button class="wishlist-btn" title="Add to Wishlist"><i class="fa-regular fa-heart"></i></button>
+                    <div class="product-img-wrapper">
+                        <img src="media/case_armor.png" alt="Heavy Duty Armor Case" class="product-img">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Phone Cases</div>
+                        <a href="#" class="product-title">Heavy Duty Shockproof Armor Bumper Case</a>
+                        <div class="price-row">
+                            <span class="price">₹1,999</span>
+                            <span class="old-price">₹2,499</span>
+                        </div>
+                        <button class="add-to-cart"><i class="fa-solid fa-bag-shopping"></i> Add to Cart</button>
+                    </div>
+                </div>
+
+                <!-- Product Card 11 -->
+                <div class="product-card" data-id="powerbank-5k-slim" data-category="powerbanks" data-price="2799"
+                    data-title="Ultra-Slim 5,000mAh Magnetic Power Bank" data-img="media/powerbank_5k.png">
+                    <button class="wishlist-btn" title="Add to Wishlist"><i class="fa-regular fa-heart"></i></button>
+                    <div class="product-img-wrapper">
+                        <img src="media/powerbank_5k.png" alt="Slim Power Bank 5000mAh" class="product-img">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Power Banks</div>
+                        <a href="#" class="product-title">Ultra-Slim 5,000mAh Magnetic Power Bank</a>
+                        <div class="price-row">
+                            <span class="price">₹2,799</span>
+                            <span class="old-price">₹3,499</span>
+                        </div>
+                        <button class="add-to-cart"><i class="fa-solid fa-bag-shopping"></i> Add to Cart</button>
+                    </div>
+                </div>
+
+                <!-- Product Card 12 -->
+                <div class="product-card" data-id="carbon-magsafe-case" data-category="cases" data-price="2999"
+                    data-title="Aramid Carbon Fiber Slim MagSafe Case" data-img="media/case_carbon.png">
+                    <button class="wishlist-btn" title="Add to Wishlist"><i class="fa-regular fa-heart"></i></button>
+                    <div class="product-img-wrapper">
+                        <img src="media/case_carbon.png" alt="Carbon Fiber Case" class="product-img">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Phone Cases</div>
+                        <a href="#" class="product-title">Aramid Carbon Fiber Slim MagSafe Case</a>
+                        <div class="price-row">
+                            <span class="price">₹2,999</span>
+                            <span class="old-price">₹3,799</span>
+                        </div>
+                        <button class="add-to-cart"><i class="fa-solid fa-bag-shopping"></i> Add to Cart</button>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- PAGINATION -->
+            <div class="pagination">
+                <a href="#" class="page-link disabled"><i class="fa-solid fa-chevron-left"></i></a>
+                <a href="#" class="page-link active">1</a>
+                <a href="#" class="page-link">2</a>
+                <a href="#" class="page-link">3</a>
+                <a href="#" class="page-link"><i class="fa-solid fa-chevron-right"></i></a>
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-container">
+
+            <div class="footer-column">
+                <h2 class="footer-logo">AUREX</h2>
+                <p>Premium mobile accessories crafted for those who demand style, durability, and innovation.</p>
+            </div>
+
+            <div class="footer-column">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="products.html?cat=silver">925 Silver Cases</a></li>
+                    <li><a href="products.html">Accessories</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h3>Support</h3>
+                <ul>
+                    <li><a href="#">FAQs</a></li>
+                    <li><a href="#">Shipping</a></li>
+                    <li><a href="#">Returns</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms & Conditions</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h3>Contact</h3>
+                <p>📍 Jaipur, Rajasthan</p>
+                <p>📧 dhakararyan.ad@gmail.com</p>
+                <p>📞 +91 7073376996</p>
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+            <p>© 2026 AUREX. All Rights Reserved.</p>
+            <p>Designed by Aryan Dhakar</p>
+        </div>
+    </footer>
+
+    <!-- INTERACTIVE SCRIPTS -->
+    <script>
+        function initProducts() {
+            const grid = document.getElementById('productsGrid');
+            const cartCountEl = document.getElementById('cartCount');
+            const priceSlider = document.getElementById('priceRange');
+            const maxPriceInput = document.getElementById('maxPrice');
+            const minPriceInput = document.getElementById('minPrice');
+            const resetBtn = document.getElementById('resetFilters');
+            const applyBtn = document.getElementById('applyFilters');
+            const categoryCheckboxes = document.querySelectorAll('input[name="category"]');
+            const productCards = Array.from(document.querySelectorAll('.product-card'));
+            const showingCountEl = document.getElementById('showingCount');
+
+            let cartCount = parseInt(localStorage.getItem('aurexCartCount') || '0', 10);
+
+            function updateCartDisplay() {
+                if (cartCountEl) {
+                    cartCountEl.textContent = cartCount;
+                    cartCountEl.classList.add('bounce');
+                    setTimeout(() => cartCountEl.classList.remove('bounce'), 200);
+                }
+            }
+            updateCartDisplay();
+
+            // Wishlist Toggle
+            document.querySelectorAll('.wishlist-btn').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    btn.classList.toggle('active');
+                    const icon = btn.querySelector('i');
+                    if (btn.classList.contains('active')) {
+                        icon.classList.remove('fa-regular');
+                        icon.classList.add('fa-solid');
+                    } else {
+                        icon.classList.remove('fa-solid');
+                        icon.classList.add('fa-regular');
+                    }
+                });
+            });
+
+            // Filter & Sort Function
+            function filterAndSortProducts() {
+                const searchInput = document.getElementById('navbarSearch');
+                const searchQuery = searchInput ? searchInput.value.toLowerCase().trim() : '';
+                const urlParams = new URLSearchParams(window.location.search);
+                const catParam = urlParams.get('cat');
+
+                let visibleCount = 0;
+                let noResultsMsg = document.getElementById('noSearchResults');
+
+                productCards.forEach(card => {
+                    const cat = (card.getAttribute('data-category') || '').toLowerCase();
+                    const title = (card.querySelector('.product-title') ? card.querySelector('.product-title').textContent : '').toLowerCase();
+                    const dataTitle = (card.getAttribute('data-title') || '').toLowerCase();
+                    const id = (card.getAttribute('data-id') || '').toLowerCase();
+
+                    const matchCat = !catParam || catParam === 'all' || cat === catParam.toLowerCase();
+                    const matchSearch = !searchQuery || title.includes(searchQuery) || dataTitle.includes(searchQuery) || cat.includes(searchQuery) || id.includes(searchQuery);
+
+                    if (matchCat && matchSearch) {
+                        card.style.display = 'flex';
+                        visibleCount++;
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+
+                if (showingCountEl) showingCountEl.textContent = visibleCount;
+
+                // Handle empty search results state
+                if (visibleCount === 0) {
+                    if (!noResultsMsg) {
+                        noResultsMsg = document.createElement('div');
+                        noResultsMsg.id = 'noSearchResults';
+                        noResultsMsg.style.cssText = 'grid-column: 1 / -1; text-align: center; padding: 60px 20px; background: #fff; border-radius: 20px; border: 1px solid #eee; margin: 20px 0;';
+                        grid.appendChild(noResultsMsg);
+                    }
+                    noResultsMsg.style.display = 'block';
+                    noResultsMsg.innerHTML = `
+                        <i class="fa-solid fa-magnifying-glass" style="font-size: 48px; color: #cbd5e1; margin-bottom: 16px;"></i>
+                        <h3 style="font-size: 20px; color: #1e293b; margin-bottom: 8px;">No products found for "${searchQuery || catParam}"</h3>
+                        <p style="color: #64748b; margin-bottom: 20px;">Try searching for "charger", "earbuds", "power bank", or "silver case".</p>
+                        <button id="resetSearchBtn" style="padding: 10px 24px; background: #2f80ed; color: #fff; border: none; border-radius: 12px; font-weight: 600; cursor: pointer;">View All Products</button>
+                    `;
+                    document.getElementById('resetSearchBtn').addEventListener('click', () => {
+                        if (searchInput) searchInput.value = '';
+                        window.history.pushState({}, '', window.location.pathname);
+                        filterAndSortProducts();
+                    });
+                } else if (noResultsMsg) {
+                    noResultsMsg.style.display = 'none';
+                }
+            }
+
+            // Prepopulate search input if present in URL
+            const urlParams = new URLSearchParams(window.location.search);
+            const searchParam = urlParams.get('search');
+            const searchInput = document.getElementById('navbarSearch');
+            if (searchParam && searchInput) {
+                searchInput.value = searchParam;
+            }
+
+            if (applyBtn) applyBtn.addEventListener('click', filterAndSortProducts);
+            if (searchInput) {
+                searchInput.addEventListener('input', filterAndSortProducts);
+            }
+
+            // Run initial filter if URL has cat or search parameter
+            if (urlParams.get('cat') || urlParams.get('search')) {
+                filterAndSortProducts();
+            }
+        }
+
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initProducts);
+        } else {
+            initProducts();
+        }
+    </script>
+    <!-- Cart System Script -->
+    <script src="cart.js"></script>
+</body>
+
+</html>
