@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Login - AUREX</title>
+    <link rel="stylesheet" href="style_index.css">
+    <style>
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background: #111;
+            color: #fff;
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+        }
+        .login-card {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 40px;
+            border-radius: 12px;
+            width: 100%;
+            max-width: 400px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        .login-card h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            font-weight: 600;
+            background: linear-gradient(90deg, #fff, #aaa);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 0.9rem;
+            color: #ccc;
+        }
+        .form-group input {
+            width: 100%;
+            padding: 12px;
+            border-radius: 6px;
+            border: 1px solid rgba(255,255,255,0.2);
+            background: rgba(0,0,0,0.2);
+            color: #fff;
+            outline: none;
+        }
+        .form-group input:focus {
+            border-color: #4285f4;
+        }
+        .login-btn {
+            width: 100%;
+            padding: 12px;
+            background: linear-gradient(90deg, #4285f4, #9b72cb);
+            color: #fff;
+            border: none;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: opacity 0.3s ease;
+        }
+        .login-btn:hover {
+            opacity: 0.9;
+        }
+        .error-msg {
+            color: #ea4335;
+            font-size: 0.85rem;
+            margin-top: 10px;
+            text-align: center;
+            display: none;
+        }
+        .brand {
+            text-align: center;
+            font-size: 1.5rem;
+            font-weight: 800;
+            letter-spacing: 2px;
+            margin-bottom: 30px;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-card">
+        <div class="brand">AUREX</div>
+        <h2>Admin Portal</h2>
+        <form id="adminLoginForm">
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" id="username" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" required>
+            </div>
+            <button type="submit" class="login-btn">Login</button>
+            <div class="error-msg" id="errorMsg">Incorrect username or password.</div>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('adminLoginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const user = document.getElementById('username').value.trim();
+            const pass = document.getElementById('password').value.trim();
+            
+            if (user === 'admin' && pass === 'aurex123') {
+                sessionStorage.setItem('adminLoggedIn', 'true');
+                window.location.href = 'admin.html';
+            } else {
+                document.getElementById('errorMsg').style.display = 'block';
+            }
+        });
+    </script>
+</body>
+</html>

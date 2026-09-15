@@ -238,6 +238,23 @@
         if (cart.length === 0) return;
 
         const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+        
+        // Save to Orders
+        try {
+            const orders = JSON.parse(localStorage.getItem('aurexOrders')) || [];
+            const newOrder = {
+                id: Math.random().toString(36).substr(2, 6).toUpperCase(),
+                date: new Date().toLocaleDateString('en-IN'),
+                items: cart,
+                total: total,
+                status: 'Pending'
+            };
+            orders.push(newOrder);
+            localStorage.setItem('aurexOrders', JSON.stringify(orders));
+        } catch(e) {
+            console.error(e);
+        }
+
         alert(`🎉 Thank you for your order with AUREX!\n\nOrder Total: ${formatPrice(total)}\nTotal Items: ${cart.reduce((s, i) => s + i.quantity, 0)}\n\nYour items will be dispatched to your location promptly.`);
         
         saveCart([]);
@@ -318,6 +335,10 @@
                 if (e.key === 'Enter') {
                     e.preventDefault();
                     const query = input.value.trim();
+                    if (query.toUpperCase() === 'AUREX-ADMIN') {
+                        window.location.href = 'admin-login.html';
+                        return;
+                    }
                     if (query) {
                         window.location.href = `products.html?search=${encodeURIComponent(query)}`;
                     }
@@ -331,6 +352,10 @@
                     icon.style.cursor = 'pointer';
                     icon.addEventListener('click', () => {
                         const query = input.value.trim();
+                        if (query.toUpperCase() === 'AUREX-ADMIN') {
+                            window.location.href = 'admin-login.html';
+                            return;
+                        }
                         if (query) {
                             window.location.href = `products.html?search=${encodeURIComponent(query)}`;
                         }

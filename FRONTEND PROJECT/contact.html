@@ -54,7 +54,7 @@
 
             <a href="#" class="icon">
                 <i class="fa-regular fa-heart"></i>
-                <span class="badge">2</span>
+                <span class="badge" id="wishlistCount">0</span>
             </a>
 
             <a href="#" class="icon">
@@ -243,6 +243,47 @@
     </footer>
     <!-- Cart System Script -->
     <script src="cart.js"></script>
+    <script src="wishlist.js"></script>
+    <script>
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const btn = document.getElementById('submitBtn');
+            const originalText = btn.innerHTML;
+            btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Sending...';
+            btn.disabled = true;
+
+            const newMsg = {
+                id: Math.random().toString(36).substr(2, 6).toUpperCase(),
+                date: new Date().toLocaleString('en-IN'),
+                name: document.getElementById('fullName').value.trim(),
+                email: document.getElementById('email').value.trim(),
+                phone: document.getElementById('phone').value.trim(),
+                subject: document.getElementById('subject').value,
+                message: document.getElementById('message').value.trim()
+            };
+
+            try {
+                const messages = JSON.parse(localStorage.getItem('aurexMessages')) || [];
+                messages.push(newMsg);
+                localStorage.setItem('aurexMessages', JSON.stringify(messages));
+            } catch(e) {
+                console.error(e);
+            }
+
+            setTimeout(() => {
+                btn.innerHTML = '<i class="fa-solid fa-check"></i> Sent Successfully';
+                btn.style.background = '#34a853';
+                document.getElementById('contactForm').reset();
+                
+                setTimeout(() => {
+                    btn.innerHTML = originalText;
+                    btn.style.background = '';
+                    btn.disabled = false;
+                }, 3000);
+            }, 1000);
+        });
+    </script>
 </body>
 
 </html>

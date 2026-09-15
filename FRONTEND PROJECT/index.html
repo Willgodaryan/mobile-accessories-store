@@ -7,6 +7,7 @@
     <title>HOMEPAGE</title>
     <link rel="stylesheet" href="style_index.css">
     <link rel="stylesheet" href="style_cart.css">
+    <script src="data.js"></script>
 </head>
 
 <body>
@@ -54,7 +55,7 @@
 
             <a href="#" class="icon">
                 <i class="fa-regular fa-heart"></i>
-                <span class="badge">2</span>
+                <span class="badge" id="wishlistCount">0</span>
             </a>
 
             <a href="#" class="icon">
@@ -181,40 +182,8 @@
         <h2>Featured Products</h2>
         <p>Discover our best-selling mobile accessories</p>
     </div>
-    <div class="product-grid">
-
-        <!-- Product Card 1: 65W GaN Charger -->
-        <div class="product-card" data-id="gan-charger-65w" data-category="Chargers" data-price="2999" data-title="65W GaN Fast Charger Dual USB-C Port" data-img="media/charger_gan.png">
-            <img class="product-img" src="media/charger_gan.png" alt="65W GaN Fast Charger">
-            <h3>65W GaN Fast Charger Dual USB-C Port</h3>
-            <p class="price">₹2,999</p>
-            <button class="add-to-cart"><i class="fa-solid fa-bag-shopping"></i> Add to Cart</button>
-        </div>
-
-        <!-- Product Card 2: ANC Earbuds Pro -->
-        <div class="product-card" data-id="anc-earbuds-pro" data-category="Earbuds" data-price="5999" data-title="Active Noise Cancelling Wireless Earbuds Pro" data-img="media/earbuds_pro.png">
-            <img class="product-img" src="media/earbuds_pro.png" alt="ANC Wireless Earbuds Pro">
-            <h3>Active Noise Cancelling Wireless Earbuds Pro</h3>
-            <p class="price">₹5,999</p>
-            <button class="add-to-cart"><i class="fa-solid fa-bag-shopping"></i> Add to Cart</button>
-        </div>
-
-        <!-- Product Card 3: MagSafe Power Bank -->
-        <div class="product-card" data-id="magsafe-powerbank-10k" data-category="Power Banks" data-price="4499" data-title="MagSafe 10,000mAh Ultra-Fast Power Bank" data-img="media/powerbank_10k.png">
-            <img class="product-img" src="media/powerbank_10k.png" alt="MagSafe Power Bank">
-            <h3>MagSafe 10,000mAh Power Bank</h3>
-            <p class="price">₹4,499</p>
-            <button class="add-to-cart"><i class="fa-solid fa-bag-shopping"></i> Add to Cart</button>
-        </div>
-
-        <!-- Product Card 4: 925 Silver Case -->
-        <div class="product-card" data-id="iphone17-promax-silver-peacock" data-category="925 Silver Cases" data-price="12999" data-title="iPhone 17 Pro Max 92.5 Sterling Silver Peacock Case" data-img="media/silver_peacock_real.jpg">
-            <img class="product-img" src="media/silver_peacock_real.jpg" alt="iPhone 17 Pro Max 92.5 Silver Peacock Case">
-            <h3>iPhone 17 Pro Max 92.5 Silver Peacock Case</h3>
-            <p class="price">₹12,999</p>
-            <button class="add-to-cart"><i class="fa-solid fa-bag-shopping"></i> Add to Cart</button>
-        </div>
-
+    <div class="product-grid" id="indexProductGrid">
+        <!-- Populated by JS -->
     </div>
 
 
@@ -314,8 +283,42 @@
 
     </footer>
 
+    <!-- ADD-TO-CART NOTIFICATION -->
+    <div id="cartToast" class="toast-notification">
+        <i class="fa-solid fa-circle-check"></i> Item added to your shopping bag.
+    </div>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const grid = document.getElementById('indexProductGrid');
+            if(grid) {
+                const products = window.getAurexProducts();
+                // Select 4 specific featured products or just the first 4
+                const featuredIds = ['gan-charger-65w', 'anc-earbuds-pro', 'magsafe-powerbank-10k', 'iphone17-promax-silver-peacock'];
+                let featured = products.filter(p => featuredIds.includes(p.id));
+                if (featured.length < 4) {
+                    featured = products.slice(0, 4); // fallback
+                }
+
+                let html = '';
+                featured.forEach(p => {
+                    const priceFormatted = '₹' + parseInt(p.price).toLocaleString('en-IN');
+                    html += `
+                        <div class="product-card" data-id="${p.id}" data-category="${p.category}" data-price="${p.price}" data-title="${p.title}" data-img="${p.image}">
+                            <img class="product-img" src="${p.image}" alt="${p.title}">
+                            <h3>${p.title}</h3>
+                            <p class="price">${priceFormatted}</p>
+                            <button class="add-to-cart"><i class="fa-solid fa-bag-shopping"></i> Add to Cart</button>
+                        </div>
+                    `;
+                });
+                grid.innerHTML = html;
+            }
+        });
+    </script>
     <!-- Cart System Script -->
     <script src="cart.js"></script>
+    <script src="wishlist.js"></script>
 </body>
 
 </html>

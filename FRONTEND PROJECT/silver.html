@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="style_silver.css">
     <link rel="stylesheet" href="style_cart.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <script src="data.js"></script>
 </head>
 
 <body>
@@ -54,7 +55,7 @@
 
             <a href="#" class="icon">
                 <i class="fa-regular fa-heart"></i>
-                <span class="badge">2</span>
+                <span class="badge" id="wishlistCount">0</span>
             </a>
 
             <a href="#" class="icon">
@@ -139,83 +140,8 @@
             <h2>Exclusive 925 Silver Collection</h2>
         </div>
 
-        <div class="silver-grid">
-
-            <!-- Silver Product Card 1 -->
-            <div class="product-card" data-id="iphone17-promax-silver-peacock" data-category="925 Silver Cases" data-price="12999"
-                data-title="iPhone 17 Pro Max 92.5 Sterling Silver Peacock Case" data-img="media/silver_peacock_real.jpg">
-                <button class="wishlist-btn" title="Add to Wishlist"><i class="fa-regular fa-heart"></i></button>
-                <div class="product-img-wrapper">
-                    <img src="media/silver_peacock_real.jpg" alt="iPhone 17 Pro Max 92.5 Sterling Silver Peacock Case"
-                        class="product-img">
-                </div>
-                <div class="product-info">
-                    <div class="product-category">925 Silver Cases</div>
-                    <a href="#" class="product-title">iPhone 17 Pro Max 92.5 Sterling Silver Peacock Case</a>
-                    <div class="price-row">
-                        <span class="price">₹12,999</span>
-                        <span class="old-price">₹15,999</span>
-                    </div>
-                    <button class="add-to-cart"><i class="fa-solid fa-bag-shopping"></i> Add to Cart</button>
-                </div>
-            </div>
-
-            <!-- Silver Product Card 2 -->
-            <div class="product-card" data-id="iphone17-pro-silver-elephant" data-category="925 Silver Cases" data-price="8000"
-                data-title="iPhone 17 Pro 92.5 Sterling Silver Elephant Case" data-img="media/silver_elephant_real.jpg">
-                <button class="wishlist-btn" title="Add to Wishlist"><i class="fa-regular fa-heart"></i></button>
-                <div class="product-img-wrapper">
-                    <img src="media/silver_elephant_real.jpg" alt="iPhone 17 Pro 92.5 Sterling Silver Elephant Case" class="product-img">
-                </div>
-                <div class="product-info">
-                    <div class="product-category">925 Silver Cases</div>
-                    <a href="#" class="product-title">iPhone 17 Pro 92.5 Sterling Silver Elephant Case</a>
-                    <div class="price-row">
-                        <span class="price">₹8,000</span>
-                        <span class="old-price">₹10,999</span>
-                    </div>
-                    <button class="add-to-cart"><i class="fa-solid fa-bag-shopping"></i> Add to Cart</button>
-                </div>
-            </div>
-
-            <!-- Silver Product Card 3 -->
-            <div class="product-card" data-id="silver-engraved-armor" data-category="925 Silver Cases"
-                data-price="11999" data-title="925 Sterling Silver Engraved Armor Case"
-                data-img="media/product1.png">
-                <button class="wishlist-btn" title="Add to Wishlist"><i class="fa-regular fa-heart"></i></button>
-                <div class="product-img-wrapper">
-                    <img src="media/product1.png" alt="925 Sterling Silver Engraved Armor Case"
-                        class="product-img">
-                </div>
-                <div class="product-info">
-                    <div class="product-category">925 Silver Cases</div>
-                    <a href="#" class="product-title">925 Sterling Silver Engraved Armor Case</a>
-                    <div class="price-row">
-                        <span class="price">₹11,999</span>
-                        <span class="old-price">₹14,499</span>
-                    </div>
-                    <button class="add-to-cart"><i class="fa-solid fa-bag-shopping"></i> Add to Cart</button>
-                </div>
-            </div>
-
-            <!-- Silver Product Card 4 -->
-            <div class="product-card" data-id="silver-royal-armor" data-category="925 Silver Cases" data-price="15999"
-                data-title="925 Silver Royal Armor Edition Case" data-img="media/CASE.png">
-                <button class="wishlist-btn" title="Add to Wishlist"><i class="fa-regular fa-heart"></i></button>
-                <div class="product-img-wrapper">
-                    <img src="media/CASE.png" alt="925 Silver Royal Armor Edition Case" class="product-img">
-                </div>
-                <div class="product-info">
-                    <div class="product-category">925 Silver Cases</div>
-                    <a href="#" class="product-title">925 Silver Royal Armor Edition Case</a>
-                    <div class="price-row">
-                        <span class="price">₹15,999</span>
-                        <span class="old-price">₹19,999</span>
-                    </div>
-                    <button class="add-to-cart"><i class="fa-solid fa-bag-shopping"></i> Add to Cart</button>
-                </div>
-            </div>
-
+        <div class="silver-grid" id="silverProductGrid">
+            <!-- Populated by JS -->
         </div>
     </main>
 
@@ -267,6 +193,11 @@
 
     </footer>
 
+    <!-- ADD-TO-CART NOTIFICATION -->
+    <div id="cartToast" class="toast-notification">
+        <i class="fa-solid fa-circle-check"></i> Item added to your shopping bag.
+    </div>
+
     <!-- INTERACTIVE SCRIPTS -->
     <script>
         function initSilverPage() {
@@ -282,21 +213,6 @@
                 }
             }
             updateCartDisplay();
-
-            // Wishlist Buttons
-            document.querySelectorAll('.wishlist-btn').forEach(btn => {
-                btn.addEventListener('click', () => {
-                    btn.classList.toggle('active');
-                    const icon = btn.querySelector('i');
-                    if (btn.classList.contains('active')) {
-                        icon.classList.remove('fa-regular');
-                        icon.classList.add('fa-solid');
-                    } else {
-                        icon.classList.remove('fa-solid');
-                        icon.classList.add('fa-regular');
-                    }
-                });
-            });
         }
 
         if (document.readyState === 'loading') {
@@ -305,8 +221,47 @@
             initSilverPage();
         }
     </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const grid = document.getElementById('silverProductGrid');
+            if(grid) {
+                const products = window.getAurexProducts();
+                const silverProducts = products.filter(p => p.category.toLowerCase().includes('silver'));
+                
+                let html = '';
+                silverProducts.forEach(p => {
+                    const priceFormatted = '₹' + parseInt(p.price).toLocaleString('en-IN');
+                    const oldPriceFormatted = p.oldPrice ? '₹' + parseInt(p.oldPrice).toLocaleString('en-IN') : '';
+
+                    html += `
+                        <div class="product-card" data-id="${p.id}" data-category="${p.category}" data-price="${p.price}" data-title="${p.title}" data-img="${p.image}">
+                            <button class="wishlist-btn" title="Add to Wishlist"><i class="fa-regular fa-heart"></i></button>
+                            <div class="product-img-wrapper">
+                                <img src="${p.image}" alt="${p.title}" class="product-img">
+                            </div>
+                            <div class="product-info">
+                                <div class="product-category">${p.category}</div>
+                                <a href="#" class="product-title">${p.title}</a>
+                                <div class="price-row">
+                                    <span class="price">${priceFormatted}</span>
+                                    <span class="old-price">${oldPriceFormatted}</span>
+                                </div>
+                                <button class="add-to-cart"><i class="fa-solid fa-bag-shopping"></i> Add to Cart</button>
+                            </div>
+                        </div>
+                    `;
+                });
+                grid.innerHTML = html;
+                
+                if (typeof window.initWishlist === 'function') {
+                    window.initWishlist();
+                }
+            }
+        });
+    </script>
     <!-- Cart System Script -->
     <script src="cart.js"></script>
+    <script src="wishlist.js"></script>
 </body>
 
 </html>

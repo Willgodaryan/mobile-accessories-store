@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AUREX - Admin Portal</title>
+    <link rel="stylesheet" href="admin.css">
+    <script>
+        // Protect Page
+        if (sessionStorage.getItem('adminLoggedIn') !== 'true') {
+            window.location.href = 'admin-login.html';
+        }
+    </script>
+</head>
+<body>
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <h2>AUREX</h2>
+        </div>
+        <nav class="sidebar-nav">
+            <a class="nav-item active" data-tab="dashboard">
+                <i class="fa-solid fa-chart-line"></i> Dashboard
+            </a>
+            <a class="nav-item" data-tab="products">
+                <i class="fa-solid fa-box-open"></i> Products
+            </a>
+            <a class="nav-item" data-tab="orders">
+                <i class="fa-solid fa-cart-shopping"></i> Orders
+            </a>
+            <a class="nav-item" data-tab="messages">
+                <i class="fa-solid fa-envelope"></i> Messages
+            </a>
+            <a class="nav-item" id="logoutBtn" style="margin-top: auto; color: #ea4335;">
+                <i class="fa-solid fa-right-from-bracket"></i> Logout
+            </a>
+        </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <header class="topbar">
+            <h1 id="pageTitle">Dashboard</h1>
+            <a href="index.html" class="btn btn-edit" style="text-decoration: none;"><i class="fa-solid fa-store"></i> View Store</a>
+        </header>
+
+        <section class="content-area">
+            
+            <!-- Dashboard Tab -->
+            <div id="tab-dashboard" class="tab-pane active">
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <h3>Total Products</h3>
+                        <div class="val" id="statProducts">0</div>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Total Orders</h3>
+                        <div class="val" id="statOrders">0</div>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Total Messages</h3>
+                        <div class="val" id="statMessages">0</div>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Wishlist Items</h3>
+                        <div class="val" id="statWishlist">0</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Products Tab -->
+            <div id="tab-products" class="tab-pane">
+                <div class="header-flex">
+                    <h2>Manage Products</h2>
+                    <button class="btn btn-primary" id="addProductBtn"><i class="fa-solid fa-plus"></i> Add Product</button>
+                </div>
+                <div class="admin-table-wrapper">
+                    <table class="admin-table">
+                        <thead>
+                            <tr>
+                                <th>Image</th>
+                                <th>Title</th>
+                                <th>Category</th>
+                                <th>Price</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="productsTableBody">
+                            <!-- Populated by JS -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Orders Tab -->
+            <div id="tab-orders" class="tab-pane">
+                <h2>Manage Orders</h2>
+                <br>
+                <div class="admin-table-wrapper">
+                    <table class="admin-table">
+                        <thead>
+                            <tr>
+                                <th>Order ID</th>
+                                <th>Items</th>
+                                <th>Total</th>
+                                <th>Status</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody id="ordersTableBody">
+                            <!-- Populated by JS -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Messages Tab -->
+            <div id="tab-messages" class="tab-pane">
+                <h2>Contact Messages</h2>
+                <br>
+                <div class="admin-table-wrapper">
+                    <table class="admin-table">
+                        <thead>
+                            <tr>
+                                <th>Date</th>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Subject</th>
+                                <th>Message</th>
+                            </tr>
+                        </thead>
+                        <tbody id="messagesTableBody">
+                            <!-- Populated by JS -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </section>
+    </main>
+
+    <!-- Product Modal -->
+    <div class="modal" id="productModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="productModalTitle">Add Product</h2>
+                <button class="modal-close" id="closeModalBtn"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <form id="productForm">
+                <input type="hidden" id="prodId">
+                <div class="form-group">
+                    <label>Title</label>
+                    <input type="text" id="prodTitle" required>
+                </div>
+                <div class="form-group">
+                    <label>Category</label>
+                    <input type="text" id="prodCategory" required>
+                </div>
+                <div class="form-group">
+                    <label>Price (₹)</label>
+                    <input type="number" id="prodPrice" required>
+                </div>
+                <div class="form-group">
+                    <label>Old Price (₹)</label>
+                    <input type="number" id="prodOldPrice">
+                </div>
+                <div class="form-group">
+                    <label>Image Path</label>
+                    <input type="text" id="prodImage" required placeholder="media/image.png">
+                </div>
+                <button type="submit" class="btn btn-primary" style="width: 100%;">Save Product</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Data dependencies -->
+    <script src="data.js"></script>
+    <script src="admin.js"></script>
+</body>
+</html>
